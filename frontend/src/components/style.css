@@ -1,0 +1,127 @@
+/* General body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f5f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Form container styling */
+.form-container, .survey-container, .thankyou-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Heading styling */
+h2 {
+  font-size: 1.8em;
+  color: #3aafa9;
+  margin-bottom: 20px;
+}
+
+/* Input, select, textarea styling */
+input, select, textarea {
+  width: 100%; /* Full width relative to container */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  background-color: #f7f9fb;
+  transition: border-color 0.3s ease-in-out;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+/* Dropdown (select) specific styling */
+select {
+  height: auto;
+  padding: 8px 12px;
+  font-size: 0.95em;
+  line-height: 1.5em;
+}
+
+/* Focus effect on input fields */
+input:focus, select:focus, textarea:focus {
+  border-color: #3aafa9;
+  outline: none;
+}
+
+/* Button styling */
+button {
+  width: 100%; /* Full width */
+  padding: 12px;
+  background-color: #2b7a78;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Hover effect on buttons */
+button:hover {
+  background-color: #3aafa9;
+}
+
+/* Back to Home button in ThankYouPage */
+button.back-home {
+  margin-top: 20px;
+  background-color: #17252a;
+}
+
+button.back-home:hover {
+  background-color: #2b7a78;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .form-container, .survey-container, .thankyou-container {
+    max-width: 90%;
+    margin: 40px auto;
+  }
+
+  input, select, textarea {
+    font-size: 0.9em;
+    padding: 8px; /* Smaller padding for mobile */
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 10px; /* Adjust button padding */
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+/* Additional styling for survey page */
+.survey-container textarea {
+  height: 120px;
+  resize: none;
+}
+
+.survey-container p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Styling for links */
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
