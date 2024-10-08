@@ -8,8 +8,8 @@ body {
 }
 
 /* Form container styling */
-.form-container, .survey-container, .thankyou-container {
-  max-width: 400px;
+.form-container, .survey-container, .thankyou-container, .dashboard-container, .response-container {
+  max-width: 500px;
   margin: 80px auto;
   padding: 30px;
   background-color: #ffffff;
@@ -84,7 +84,7 @@ button.back-home:hover {
 
 /* Responsive design for smaller screens */
 @media (max-width: 600px) {
-  .form-container, .survey-container, .thankyou-container {
+  .form-container, .survey-container, .thankyou-container, .dashboard-container, .response-container {
     max-width: 90%;
     margin: 40px auto;
   }
@@ -125,3 +125,138 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Additional styling for Admin pages */
+
+/* Admin Login styling */
+.admin-login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-login-container input {
+  margin-bottom: 15px;
+}
+
+.admin-login-container button {
+  margin-top: 20px;
+}
+
+/* Admin Dashboard Styling */
+.dashboard-container {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container a {
+  display: block;
+  margin: 15px 0;
+  padding: 12px;
+  background-color: #3aafa9;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dashboard-container a:hover {
+  background-color: #2b7a78;
+}
+
+/* Create Survey Page Styling */
+.create-survey-container {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-survey-container input,
+.create-survey-container select,
+.create-survey-container button {
+  margin-bottom: 15px;
+}
+
+/* Add Question button styling */
+button.add-question-btn {
+  background-color: #3aafa9;
+  margin-top: 10px;
+}
+
+button.add-question-btn:hover {
+  background-color: #2b7a78;
+}
+
+/* View Responses Page Styling */
+.response-container {
+  max-width: 700px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.response-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.response-container li {
+  padding: 10px;
+  background-color: #f7f9fb;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #dfe6e9;
+}
+
+.response-container li strong {
+  color: #333;
+}
+
+/* Styling for question and answer display */
+.response-container li strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+.create-survey-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: fit-content;
+  padding: 5px 20px;
+  background-color: #2b7a78;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  
+}
+
+/* Hover effect for the button */
+.create-survey-btn:hover {
+  background-color: #3aafa9;
+  transform: translateY(-2px); 
+}
+
+.back-btn{
+  width: fit-content;
+  position: fixed;
+  top: 50%;
+  left: 20px;
+}

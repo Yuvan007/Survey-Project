@@ -47,7 +47,6 @@ app.get('/users', async (req, res) => {
     }
 });
 
-
 // POST route for user registration
 app.post('/register', async (req, res) => {
     const { name, email, password, level } = req.body;
@@ -55,12 +54,11 @@ app.post('/register', async (req, res) => {
 
     try {
         let pool = await connectToDB();
-        await pool.request()
-            .input('name', sql.VarChar, name)
-            .input('email', sql.VarChar, email)
-            .input('password', sql.VarChar, hashedPassword)
-            .input('level', sql.VarChar, level)
-            .query('INSERT INTO users (name, email, password, level) VALUES (@name, @email, @password, @level)');
+        let query = `
+            INSERT INTO users (name, email, password, level) 
+            VALUES ('${name}', '${email}', '${hashedPassword}', '${level}')
+        `;
+        await pool.request().query(query);
 
         res.json({ status: 'Success', message: 'User registered successfully' });
     } catch (err) {
@@ -75,9 +73,8 @@ app.post('/login', async (req, res) => {
 
     try {
         let pool = await connectToDB();
-        let result = await pool.request()
-            .input('email', sql.VarChar, email)
-            .query('SELECT * FROM users WHERE email = @email');
+        let query = `SELECT * FROM users WHERE email = '${email}'`;
+        let result = await pool.request().query(query);
 
         if (result.recordset.length > 0) {
             const user = result.recordset[0];
@@ -94,6 +91,60 @@ app.post('/login', async (req, res) => {
     } catch (err) {
         console.error('Error during login:', err);
         res.status(500).send({ status: 'error', message: 'Login failed' });
+    }
+});
+
+// POST route for admin login 
+app.post('/admin/login', async (req, res) => {
+    const { email, password } = req.body;   
+    const AdminEmail = 'admin@mail.com';
+    const AdminPassword = '1234'; 
+
+    try {
+        if (email === AdminEmail && password === AdminPassword) {
+            res.json({ status: 'Success', message: 'Admin login successful' });
+        } else {
+            res.json({ status: 'error', message: 'Invalid admin credentials' });
+        }
+    } catch (err) {
+        console.error('Error during admin login:', err);
+        res.status(500).send({ status: 'error', message: 'Admin login failed' });
+    }
+});
+
+
+// POST route for creating survey
+app.post('/admin/create-survey', async (req, res) => {
+    const { level, questions } = req.body;
+
+    try {
+        let pool = await connectToDB();
+        for (let question of questions) {
+            let query = `INSERT INTO surveys (level, question) VALUES ('${level}', '${question}')`;
+            await pool.request().query(query);
+        }
+        res.json({ status: 'Success', message: 'Survey created successfully' });
+    } catch (err) {
+        console.error('Error creating survey:', err);
+        res.status(500).send({ status: 'error', message: 'Error creating survey' });
+    }
+});
+
+// GET route for viewing responses
+app.get('/admin/view-responses', async (req, res) => {
+    try {
+        let pool = await connectToDB();
+        let query = 'SELECT question, answer FROM surveys WHERE answer IS NOT NULL';
+        let result = await pool.request().query(query);
+
+        if (result.recordset.length > 0) {
+            res.json({ status: 'Success', data: result.recordset });
+        } else {
+            res.json({ status: 'error', message: 'No responses found' });
+        }
+    } catch (err) {
+        console.error('Error fetching responses:', err);
+        res.status(500).send({ status: 'error', message: 'Error fetching responses' });
     }
 });
 
