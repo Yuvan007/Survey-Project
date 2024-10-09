@@ -30,20 +30,54 @@ async function connectToDB() {
     }
 }
 
-// GET route to display all users
-app.get('/users', async (req, res) => {
+// GET route to fetch survey questions for freshers
+app.get('/survey/fresher-questions', async (req, res) => {
     try {
         let pool = await connectToDB();
-        let result = await pool.request().query('SELECT * FROM users');
-        
+        let result = await pool.request().query("SELECT question FROM surveys WHERE level = 'Fresher'");
+
         if (result.recordset.length > 0) {
-            res.json({data: result.recordset });
+            res.json({ status: 'Success', data: result.recordset.map(q => q.question) });
         } else {
-            res.json({ status: 'error', message: 'No users found' });
+            res.json({ status: 'error', message: 'No questions found for freshers' });
         }
     } catch (err) {
-        console.error('Error fetching users:', err);
-        res.status(500).send({ status: 'error', message: 'Error fetching user data' });
+        console.error('Error fetching fresher questions:', err);
+        res.status(500).send({ status: 'error', message: 'Error fetching questions' });
+    }
+});
+
+// GET route to fetch survey questions for experienced professionals
+app.get('/survey/experienced-questions', async (req, res) => {
+    try {
+        let pool = await connectToDB();
+        let result = await pool.request().query("SELECT question FROM surveys WHERE level = 'Experienced'");
+
+        if (result.recordset.length > 0) {
+            res.json({ status: 'Success', data: result.recordset.map(q => q.question) });
+        } else {
+            res.json({ status: 'error', message: 'No questions found for experienced professionals' });
+        }
+    } catch (err) {
+        console.error('Error fetching experienced questions:', err);
+        res.status(500).send({ status: 'error', message: 'Error fetching questions' });
+    }
+});
+
+// POST route for submitting survey answers
+app.post('/survey/submit-answers', async (req, res) => {
+    const { level, answers } = req.body;
+
+    try {
+        let pool = await connectToDB();
+        for (let i = 0; i < answers.length; i++) {
+            let query = `UPDATE surveys SET answer = '${answers[i]}' WHERE level = '${level}' AND question = (SELECT question FROM surveys WHERE level = '${level}' ORDER BY id OFFSET ${i} ROWS FETCH NEXT 1 ROWS ONLY)`;
+            await pool.request().query(query);
+        }
+        res.json({ status: 'Success', message: 'Survey answers submitted successfully' });
+    } catch (err) {
+        console.error('Error submitting answers:', err);
+        res.status(500).send({ status: 'error', message: 'Error submitting answers' });
     }
 });
 
@@ -112,7 +146,6 @@ app.post('/admin/login', async (req, res) => {
     }
 });
 
-
 // POST route for creating survey
 app.post('/admin/create-survey', async (req, res) => {
     const { level, questions } = req.body;
@@ -130,7 +163,7 @@ app.post('/admin/create-survey', async (req, res) => {
     }
 });
 
-// GET route for viewing responses
+// GET route for viewing responses without user details
 app.get('/admin/view-responses', async (req, res) => {
     try {
         let pool = await connectToDB();

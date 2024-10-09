@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ViewResponsesPage() {
   const [responses, setResponses] = useState([]);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchResponses() {
+      // Fetch user responses from the server
       const response = await fetch(
         "http://localhost:3000/admin/view-responses"
       );
       const result = await response.json();
       if (result.status === "Success") {
-        setResponses(result.data);
+        setResponses(result.data); // Set responses data
       } else {
         alert("Error fetching responses");
       }
@@ -26,11 +27,12 @@ function ViewResponsesPage() {
         <h2>View Responses</h2>
         {responses.length > 0 ? (
           <ul>
+           
             {responses.map((r, index) => (
               <li key={index}>
-                <strong>Question:</strong> {r.question}
-                <br />
-                <strong>Answer:</strong> {r.answer}
+                <strong>Level: </strong> {r.level} <br />
+                <strong>Question: </strong> {r.question} <br />
+                <strong>Answer: </strong> {r.answer}
               </li>
             ))}
           </ul>
@@ -44,7 +46,7 @@ function ViewResponsesPage() {
           navigate("/admin-dashboard");
         }}
       >
-        <i class="fa-solid fa-chevron-left"></i>
+        <i className="fa-solid fa-chevron-left"></i>
       </button>
     </div>
   );
