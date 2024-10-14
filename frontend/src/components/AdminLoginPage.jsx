@@ -43,7 +43,14 @@ function AdminLoginPage() {
         <button type="submit">Login</button>
       </form>
     </div>
-    <button className="back-btn" onClick={()=>{navigate("/")}}><i class="fa-solid fa-chevron-left"></i></button>
+    <button
+        className="back-btn"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        <i className="fa-solid fa-chevron-left"></i>
+      </button>
     </div>
   );
 }

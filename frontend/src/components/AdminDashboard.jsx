@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import '../style/AdminDashboard.css'
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -10,8 +11,7 @@ function AdminDashboard() {
         <Link to="/create-survey">Create Survey</Link>
         <br />
         <Link to="/view-responses">View Responses</Link>
-      </div>
-      <button
+        <button
         className="back-btn"
         onClick={() => {
           navigate("/admin-login");
@@ -19,6 +19,8 @@ function AdminDashboard() {
       >
         <i class="fa-solid fa-chevron-left"></i>
       </button>
+      </div>
+      
     </div>
   );
 }

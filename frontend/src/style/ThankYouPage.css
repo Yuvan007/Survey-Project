@@ -1,0 +1,40 @@
+/* General container styling */
+.thankyou-container {
+    padding: 20px; /* Space inside the container */
+    background-color: #f0f0f0; /* Light grey background */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow for depth */
+    max-width: 400px; /* Maximum width of the container */
+    margin: 50px auto; /* Center the container with some margin at the top */
+    text-align: center; /* Center align the text */
+}
+
+/* Heading styling */
+.thankyou-container h2 {
+    color: #333; /* Dark grey text color */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+/* Button styling */
+.thankyou-container button {
+    padding: 10px 20px; /* Padding for the button */
+    background-color: #a0a0a0; /* Medium grey background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 3px; /* Slightly rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 16px; /* Font size for the button */
+}
+
+/* Button hover effect */
+.thankyou-container button:hover {
+    background-color: #808080; /* Darker grey on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .thankyou-container {
+        padding: 15px; /* Less padding on small screens */
+        max-width: 90%; /* More width on small screens */
+    }
+}

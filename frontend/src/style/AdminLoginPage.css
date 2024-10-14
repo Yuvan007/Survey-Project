@@ -1,0 +1,76 @@
+/* General Settings */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Very light grey background */
+}
+
+/* Form Container */
+.form-container {
+    max-width: 400px; /* Limit the width of the form */
+    margin: 100px auto; /* Center the form on the page */
+    padding: 40px; /* Add padding inside the container */
+    background-color: white; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Form Title */
+.form-container h2 {
+    text-align: center; /* Center the title */
+    color: #6b6b6b; /* Dark grey */
+    margin-bottom: 30px; /* Space below the title */
+}
+
+/* Input Fields */
+.form-container input {
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding inside the input fields */
+    margin-bottom: 20px; /* Space below each field */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1rem; /* Font size */
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+/* Input Field Focus Effect */
+.form-container input:focus {
+    border-color: #6b6b6b; /* Dark grey border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Submit Button */
+.form-container button {
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding inside the button */
+    background-color: #6b6b6b; /* Dark grey */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Submit Button Hover Effect */
+.form-container button:hover {
+    background-color: #9e9e9e; /* Light grey on hover */
+}
+
+/* Back Button */
+.back-btn {
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 15px; /* Padding for the button */
+    background-color: #6b6b6b; /* Dark grey */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Back Button Hover Effect */
+.back-btn:hover {
+    background-color: #9e9e9e; /* Light grey on hover */
+}

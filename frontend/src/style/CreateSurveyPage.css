@@ -1,0 +1,71 @@
+/* General container styling */
+.form-container {
+    padding: 20px; /* Add padding around the container */
+    background-color: #f9f9f9; /* Light grey background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 600px; /* Max width for the container */
+    margin: auto; /* Center the container */
+}
+
+/* Heading styling */
+.form-container h2 {
+    text-align: center; /* Center align heading */
+    color: #333; /* Darker text color */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Label styling */
+.form-container label {
+    display: block; /* Block display for labels */
+    margin-bottom: 10px; /* Space below labels */
+    font-weight: bold; /* Bold font for labels */
+}
+
+/* Select and input styling */
+.form-container select,
+.form-container input[type="text"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below inputs */
+    font-size: 16px; /* Font size for inputs */
+}
+
+/* Button styling */
+button {
+    padding: 10px 15px; /* Padding for buttons */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size for buttons */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    margin-right: 10px; /* Space between buttons */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Back button styling */
+.back-btn {
+    display: block; /* Button on a new line */
+    margin: 20px auto; /* Center the button with margin */
+    padding: 10px 20px; /* Padding for button */
+    background-color: #007bff; /* Same color as other buttons */
+    color: #fff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size for button */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+/* Button hover effect for back button */
+.back-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

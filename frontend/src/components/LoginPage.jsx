@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./style.css";
+import '../style/LoginPage.css'
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -49,18 +49,18 @@ function LoginPage() {
           <button type="submit">Login</button>
         </form>
         <p>
-          Don't have an account? <a href="/register">Register here</a>
+          New user? <a href="/register">Register here</a>
         </p>
       </div>
 
-      <button
+      {/* <button
         className="create-survey-btn"
         onClick={() => {
           navigate("/admin-login");
         }}
       >
         <p>Admin Login</p>
-      </button>
+      </button> */}
     </div>
   );
 }

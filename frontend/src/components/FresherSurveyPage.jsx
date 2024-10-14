@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./style.css";
+import '../style/FresherSurveyPage.css'
 
 function FresherSurveyPage() {
   const [questions, setQuestions] = useState([]); // To store the fetched survey questions

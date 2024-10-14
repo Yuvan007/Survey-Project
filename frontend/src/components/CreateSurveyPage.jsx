@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../style/CreateSurveyPage.css'
 
 function CreateSurveyPage() {
   const [level, setLevel] = useState("Fresher"); // Level selection
@@ -22,10 +23,10 @@ function CreateSurveyPage() {
     }
   };
 
-  const addQuestion = () => setQuestions([...questions, ""]); // Add a new question
+  const addQuestion = () => setQuestions([...questions, ""]); // Add new question
   const handleQuestionChange = (index, value) => {
     const newQuestions = [...questions];
-    newQuestions[index] = value; // Update question text
+    newQuestions[index] = value; // Update question 
     setQuestions(newQuestions);
   };
 
@@ -34,7 +35,7 @@ function CreateSurveyPage() {
       <div className="form-container">
         <h2>Create Survey</h2>
         <form onSubmit={handleSubmit}>
-          {/* Select level: Fresher or Experienced */}
+         
           <label>Select Level:</label>
           <select value={level} onChange={(e) => setLevel(e.target.value)}>
             <option value="Fresher">Fresher</option>

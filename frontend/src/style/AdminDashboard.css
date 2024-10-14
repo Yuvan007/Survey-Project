@@ -1,0 +1,61 @@
+/* General Settings */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 600px; /* Limit the width of the dashboard */
+    margin: 50px auto; /* Center the dashboard */
+    padding: 30px; /* Padding inside the container */
+    background-color: white; /* White background for clarity */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    text-align: center; /* Center the text */
+}
+
+/* Dashboard Title */
+.dashboard-container h2 {
+    color: #6b6b6b; /* Dark grey for consistency */
+    margin-bottom: 30px; /* Space below the title */
+}
+
+/* Link Styling */
+.dashboard-container a {
+    display: block; /* Display links as block elements */
+    padding: 12px; /* Padding for the links */
+    margin: 10px 0; /* Vertical space between links */
+    background-color: #6b6b6b; /* Dark grey background */
+    color: white; /* White text */
+    border-radius: 4px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.1rem; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Link Hover Effect */
+.dashboard-container a:hover {
+    background-color: #9e9e9e; /* Light grey on hover */
+}
+
+/* Back Button */
+.back-btn {
+    margin: 20px auto; /* Center the back button */
+    display: block; /* Display as block to center it */
+    padding: 10px 20px; /* Padding inside the button */
+    background-color: #6b6b6b; /* Dark grey background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1rem; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Back Button Hover Effect */
+.back-btn:hover {
+    background-color: #9e9e9e; /* Light grey on hover */
+}

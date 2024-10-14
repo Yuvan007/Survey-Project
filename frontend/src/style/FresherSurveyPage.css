@@ -1,0 +1,92 @@
+/* General Settings */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+/* Survey Container */
+.survey-container {
+    max-width: 600px; /* Limit the width of the form */
+    margin: 50px auto; /* Center the form */
+    padding: 30px; /* Padding inside the container */
+    background-color: white; /* White background for clarity */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Survey Title */
+.survey-container h2 {
+    text-align: center; /* Center the title */
+    color: #6b6b6b; /* Dark grey for consistency */
+    margin-bottom: 25px; /* Space below the title */
+}
+
+/* Question Styling */
+.survey-container p {
+    font-size: 1.1rem; /* Slightly larger font for questions */
+    color: #333; /* Dark text for readability */
+    margin-bottom: 8px; /* Small space below question */
+}
+
+/* Answer Textarea */
+.survey-container textarea {
+    width: 100%; /* Full width textarea */
+    height: 100px; /* Fixed height for answers */
+    padding: 10px; /* Padding inside the textarea */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Slightly rounded corners */
+    resize: none; /* Prevent resizing */
+    font-size: 1rem; /* Font size for clarity */
+    margin-bottom: 20px; /* Space below each textarea */
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+/* Textarea Focus Effect */
+.survey-container textarea:focus {
+    border-color: #6b6b6b; /* Dark grey border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Submit Button */
+.survey-container button[type="submit"] {
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding for the button */
+    background-color: #6b6b6b; /* Dark grey background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Submit Button Hover Effect */
+.survey-container button[type="submit"]:hover {
+    background-color: #9e9e9e; /* Light grey on hover */
+}
+
+/* Back Button */
+.back-btn {
+    margin: 20px auto; /* Center the back button */
+    display: block; /* Display as block to center it */
+    padding: 10px 20px; /* Padding inside the button */
+    background-color: #6b6b6b; /* Dark grey background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1rem; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Back Button Hover Effect */
+.back-btn:hover {
+    background-color: #9e9e9e; /* Light grey on hover */
+}
+
+/* Loading Message */
+.survey-container p {
+    color: #6b6b6b; /* Dark grey text */
+}
