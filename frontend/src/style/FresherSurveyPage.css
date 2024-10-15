@@ -1,92 +1,83 @@
-/* General Settings */
+/* FresherSurveyPage.css */
+
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light grey background */
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4; /* Light grey background */
-}
-
-/* Survey Container */
-.survey-container {
-    max-width: 600px; /* Limit the width of the form */
-    margin: 50px auto; /* Center the form */
-    padding: 30px; /* Padding inside the container */
-    background-color: white; /* White background for clarity */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-}
-
-/* Survey Title */
-.survey-container h2 {
-    text-align: center; /* Center the title */
-    color: #6b6b6b; /* Dark grey for consistency */
-    margin-bottom: 25px; /* Space below the title */
-}
-
-/* Question Styling */
-.survey-container p {
-    font-size: 1.1rem; /* Slightly larger font for questions */
-    color: #333; /* Dark text for readability */
-    margin-bottom: 8px; /* Small space below question */
-}
-
-/* Answer Textarea */
-.survey-container textarea {
-    width: 100%; /* Full width textarea */
-    height: 100px; /* Fixed height for answers */
-    padding: 10px; /* Padding inside the textarea */
+  }
+  
+  .survey-container {
+    background-color: #ffffff; /* White background for the survey form */
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for container */
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #333; /* Dark grey text */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #555; /* Medium grey text for questions */
+  }
+  
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
     border: 1px solid #ccc; /* Light grey border */
-    border-radius: 4px; /* Slightly rounded corners */
-    resize: none; /* Prevent resizing */
-    font-size: 1rem; /* Font size for clarity */
-    margin-bottom: 20px; /* Space below each textarea */
-    transition: border-color 0.3s; /* Smooth transition */
-}
-
-/* Textarea Focus Effect */
-.survey-container textarea:focus {
-    border-color: #6b6b6b; /* Dark grey border on focus */
-    outline: none; /* Remove default outline */
-}
-
-/* Submit Button */
-.survey-container button[type="submit"] {
-    width: 100%; /* Full width */
-    padding: 12px; /* Padding for the button */
-    background-color: #6b6b6b; /* Dark grey background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Slightly rounded corners */
-    font-size: 1rem; /* Font size */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-/* Submit Button Hover Effect */
-.survey-container button[type="submit"]:hover {
-    background-color: #9e9e9e; /* Light grey on hover */
-}
-
-/* Back Button */
-.back-btn {
-    margin: 20px auto; /* Center the back button */
-    display: block; /* Display as block to center it */
-    padding: 10px 20px; /* Padding inside the button */
-    background-color: #6b6b6b; /* Dark grey background */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 1rem; /* Font size */
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-/* Back Button Hover Effect */
-.back-btn:hover {
-    background-color: #9e9e9e; /* Light grey on hover */
-}
-
-/* Loading Message */
-.survey-container p {
-    color: #6b6b6b; /* Dark grey text */
-}
+    background-color: #f9f9f9; /* Slightly lighter grey background */
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05); /* Subtle inset shadow */
+    font-size: 16px;
+  }
+  
+  button[type="submit"] {
+    background-color: #d3d3d3; /* Light grey button */
+    color: #333; /* Dark grey text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #b0b0b0; /* Darker grey on hover */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More shadow on hover */
+  }
+  
+  button.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #d3d3d3; /* Light grey button */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  button.back-btn:hover {
+    background-color: #b0b0b0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fa-chevron-left {
+    font-size: 16px;
+    color: #333;
+  }
+  

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../style/CreateSurveyPage.css'
+import "../style/CreateSurveyPage.css";
 
 function CreateSurveyPage() {
-  const [level, setLevel] = useState("Fresher"); // Level selection
+  const [level, setLevel] = useState("Fresher"); 
   const [questions, setQuestions] = useState([""]); // List of questions
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function CreateSurveyPage() {
     const response = await fetch("http://localhost:3000/admin/create-survey", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ level, questions }), // Sending level and questions
+      body: JSON.stringify({ level, questions }), 
     });
     const result = await response.json();
     if (result.status === "Success") {
@@ -26,7 +26,7 @@ function CreateSurveyPage() {
   const addQuestion = () => setQuestions([...questions, ""]); // Add new question
   const handleQuestionChange = (index, value) => {
     const newQuestions = [...questions];
-    newQuestions[index] = value; // Update question 
+    newQuestions[index] = value; // Update question
     setQuestions(newQuestions);
   };
 
@@ -35,7 +35,6 @@ function CreateSurveyPage() {
       <div className="form-container">
         <h2>Create Survey</h2>
         <form onSubmit={handleSubmit}>
-         
           <label>Select Level:</label>
           <select value={level} onChange={(e) => setLevel(e.target.value)}>
             <option value="Fresher">Fresher</option>
@@ -52,11 +51,10 @@ function CreateSurveyPage() {
               required
             />
           ))}
-          <div style={{ height: 20 }}></div>
+
           <button type="button" onClick={addQuestion}>
             Add Question
           </button>
-          <div style={{ height: 10 }}></div>
           <button type="submit">Create Survey</button>
         </form>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import '../style/ThankYouPage.css'
+import '../style/ThankYouPage.css';
 
 function ThankYouPage() {
   const navigate = useNavigate();
@@ -10,9 +10,11 @@ function ThankYouPage() {
   };
 
   return (
-    <div className="thankyou-container">
-      <h2>Thank you for submitting the survey!</h2>
-      <button onClick={goBackToHome}>Back to Home</button>
+    <div className="thankyou-outer-container">
+      <div className="thankyou-container">
+        <h2>Thank you for submitting the survey!</h2>
+        <button onClick={goBackToHome}>Back to Home</button>
+      </div>
     </div>
   );
 }
