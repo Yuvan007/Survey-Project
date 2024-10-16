@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../style/ExperiencedSurveyPage.css'
+import '../style/ExperiencedSurveyPage.css';
 
 function ExperiencedSurveyPage() {
-  const [questions, setQuestions] = useState([]); // To store the fetched survey questions
-  const [answers, setAnswers] = useState([]); // To store user answers
+  const [questions, setQuestions] = useState([]); // Store survey questions
+  const [answers, setAnswers] = useState([]); // Store user answers
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch questions for experienced users from the backend
+    // Fetch questions for experienced users
     async function fetchQuestions() {
-      const response = await fetch(
-        "http://localhost:3000/survey/experienced-questions"
-      );
+      const response = await fetch("http://localhost:3000/survey/experienced-questions");
       const result = await response.json();
+
       if (result.status === "Success") {
-        setQuestions(result.data); // Set the fetched questions
-        setAnswers(Array(result.data.length).fill("")); // Initialize answers array
+        setQuestions(result.data); // Set fetched questions
+        setAnswers(Array(result.data.length).fill("")); // Initialize answers
       } else {
         alert("Error fetching survey questions");
       }
@@ -25,25 +24,22 @@ function ExperiencedSurveyPage() {
   }, []);
 
   const handleAnswerChange = (index, value) => {
-    const newAnswers = [...answers];
-    newAnswers[index] = value; // Update the answer for the question at 'index'
-    setAnswers(newAnswers);
+    const newAnswers = [...answers]; // Copy current answers
+    newAnswers[index] = value; // Update answer
+    setAnswers(newAnswers); // Set updated answers
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Send user answers to the backend
-    const response = await fetch(
-      "http://localhost:3000/survey/submit-answers",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ level: "Experienced", answers }),
-      }
-    );
+    e.preventDefault(); // Prevent default form submission
+    const response = await fetch("http://localhost:3000/survey/submit-answers", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ level: "Experienced", answers }), // Send answers to backend
+    });
     const result = await response.json();
+
     if (result.status === "Success") {
-      navigate("/thank-you"); // Redirect to thank you page after submission
+      navigate("/thank-you"); // Redirect to thank you page
     } else {
       alert("Error submitting answers");
     }
@@ -57,9 +53,7 @@ function ExperiencedSurveyPage() {
           {questions.length > 0 ? (
             questions.map((question, idx) => (
               <div key={idx}>
-                <p>
-                  Question {idx + 1}: {question}
-                </p>
+                <p>Question {idx + 1}: {question}</p>
                 <textarea
                   value={answers[idx]}
                   onChange={(e) => handleAnswerChange(idx, e.target.value)}
@@ -73,12 +67,7 @@ function ExperiencedSurveyPage() {
           <button type="submit">Submit</button>
         </form>
       </div>
-      <button
-        className="btn back-btn"
-        onClick={() => {
-          navigate("/");
-        }}
-      >
+      <button className="btn back-btn" onClick={() => navigate("/")}>
         <i className="fa-solid fa-chevron-left"></i>
       </button>
     </div>

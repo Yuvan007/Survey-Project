@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import '../style/RegisterPage.css'
+import '../style/RegisterPage.css';
 
 function RegisterPage() {
   const [name, setName] = useState("");
@@ -17,11 +17,9 @@ function RegisterPage() {
       body: JSON.stringify({ name, email, password, level }),
     });
     const result = await response.json();
+    alert(result.message); // Show message from server
     if (result.status === "Success") {
-      alert(result.message);
-      navigate("/");
-    } else {
-      alert(result.message);
+      navigate("/"); // Redirect to home
     }
   };
 

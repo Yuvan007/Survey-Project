@@ -3,22 +3,21 @@ import { useNavigate } from "react-router-dom";
 import "../style/FresherSurveyPage.css";
 
 function FresherSurveyPage() {
-  const [questions, setQuestions] = useState([]); // To store the fetched survey questions
-  const [answers, setAnswers] = useState([]); // To store user answers
+  const [questions, setQuestions] = useState([]); // Store questions
+  const [answers, setAnswers] = useState([]); // Store answers
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch questions for freshers from the backend
     async function fetchQuestions() {
       const response = await fetch(
         "http://localhost:3000/survey/fresher-questions"
       );
       const result = await response.json();
       if (result.status === "Success") {
-        setQuestions(result.data); // Set the fetched questions
-        setAnswers(Array(result.data.length).fill("")); // Initialize answers array
+        setQuestions(result.data);
+        setAnswers(Array(result.data.length).fill("")); // Initialize answers
       } else {
-        alert("Error fetching survey questions");
+        alert("Error fetching questions");
       }
     }
     fetchQuestions();
@@ -26,13 +25,12 @@ function FresherSurveyPage() {
 
   const handleAnswerChange = (index, value) => {
     const newAnswers = [...answers];
-    newAnswers[index] = value; // Update the answer for the question at 'index'
+    newAnswers[index] = value; // Update answer
     setAnswers(newAnswers);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Send user answers to the backend
     const response = await fetch(
       "http://localhost:3000/survey/submit-answers",
       {
@@ -43,7 +41,7 @@ function FresherSurveyPage() {
     );
     const result = await response.json();
     if (result.status === "Success") {
-      navigate("/thank-you"); // Redirect to thank you page after submission
+      navigate("/thank-you"); // Redirect after submission
     } else {
       alert("Error submitting answers");
     }
@@ -52,33 +50,28 @@ function FresherSurveyPage() {
   return (
     <div>
       <div className="survey-container">
-        <h2>Survey for Freshers</h2>
-        <form onSubmit={handleSubmit}>
-          {questions.length > 0 ? (
-            questions.map((question, idx) => (
-              <div key={idx}>
-                <p>
-                  Question {idx + 1}: {question}
-                </p>
-                <textarea
-                  value={answers[idx]}
-                  onChange={(e) => handleAnswerChange(idx, e.target.value)}
-                  required
-                ></textarea>
-              </div>
-            ))
-          ) : (
-            <p>Loading questions...</p>
-          )}
-          <button type="submit">Submit</button>
-        </form>
+      <h2>Survey for Freshers</h2>
+      <form onSubmit={handleSubmit}>
+        {questions.length > 0 ? (
+          questions.map((question, idx) => (
+            <div key={idx}>
+              <p>
+                Question {idx + 1}: {question}
+              </p>
+              <textarea
+                value={answers[idx]}
+                onChange={(e) => handleAnswerChange(idx, e.target.value)}
+                required
+              ></textarea>
+            </div>
+          ))
+        ) : (
+          <p>Loading questions...</p>
+        )}
+        <button type="submit">Submit</button>
+      </form>
       </div>
-      <button
-        className="btn back-btn"
-        onClick={() => {
-          navigate("/");
-        }}
-      >
+      <button className="btn back-btn" onClick={() => navigate("/")}>
         <i className="fa-solid fa-chevron-left"></i>
       </button>
     </div>

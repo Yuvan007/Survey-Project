@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../style/ViewResponsesPage.css'
+import '../style/ViewResponsesPage.css';
 
 function ViewResponsesPage() {
-  const [responsesByLevel, setResponsesByLevel] = useState({});
+  const [responses, setResponses] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchResponses() {
-      const response = await fetch(
-        "http://localhost:3000/admin/view-responses"
-      );
+      const response = await fetch("http://localhost:3000/admin/view-responses");
       const result = await response.json();
 
       if (result.status === "Success") {
-        const groupedResponses = result.data.reduce((acc, response) => {
-          if (!acc[response.level]) {
-            acc[response.level] = [];
+        let groupedResponses = {};
+        for (let r of result.data) {
+          if (!groupedResponses[r.level]) {
+            groupedResponses[r.level] = [];
           }
-          acc[response.level].push(response);
-          return acc;
-        }, {});
-
-        setResponsesByLevel(groupedResponses);
+          groupedResponses[r.level].push(r);
+        }
+        setResponses(groupedResponses);
       } else {
         alert("Error fetching responses");
       }
@@ -33,14 +30,13 @@ function ViewResponsesPage() {
   return (
     <div className="response-container">
       <h2>View Responses</h2>
-
-      {Object.keys(responsesByLevel).length > 0 ? (
+      {Object.keys(responses).length > 0 ? (
         <div>
-          {Object.keys(responsesByLevel).map((level) => (
+          {Object.keys(responses).map((level) => (
             <div key={level} className="level-section">
               <h3>{level} Level Responses</h3>
               <ul>
-                {responsesByLevel[level].map((r, index) => (
+                {responses[level].map((r, index) => (
                   <li key={index}>
                     <strong>Question:</strong> <span>{r.question}</span><br />
                     <strong>Answer:</strong> <span>{r.answer}</span>
@@ -53,12 +49,9 @@ function ViewResponsesPage() {
       ) : (
         <p>No responses found</p>
       )}
-
       <button
         className="back-btn"
-        onClick={() => {
-          navigate("/admin-dashboard");
-        }}
+        onClick={() => navigate("/admin-dashboard")}
       >
         <i className="fa-solid fa-chevron-left"></i>
       </button>

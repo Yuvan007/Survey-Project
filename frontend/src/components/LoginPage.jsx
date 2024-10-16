@@ -24,43 +24,32 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <div className="form-container">
-        <h2>Login</h2>
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <select value={level} onChange={(e) => setLevel(e.target.value)}>
-            <option value="Fresher">Fresher</option>
-            <option value="Experienced">Experienced</option>
-          </select>
-          <button type="submit">Login</button>
-        </form>
-        <p>
-          New user? <a href="/register">Register here</a>
-        </p>
-      </div>
-
-      {/* <button
-        className="create-survey-btn"
-        onClick={() => {
-          navigate("/admin-login");
-        }}
-      >
-        <p>Admin Login</p>
-      </button> */}
+    <div className="form-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <select value={level} onChange={(e) => setLevel(e.target.value)}>
+          <option value="Fresher">Fresher</option>
+          <option value="Experienced">Experienced</option>
+        </select>
+        <button type="submit">Login</button>
+      </form>
+      <p>
+        New user? <a href="/register">Register here</a>
+      </p>
     </div>
   );
 }
